@@ -157,5 +157,7 @@ en-US-GuyNeural for a solid male voice
 en-US-BrianNeural for a more polished, presenter-style male voice
 en-US-AriaNeural for expressive narration
 
+# GitHub
 
-
+git config --global user.email "devrazec@gmail.com"
+git config --global user.name "Cezar Souza"
