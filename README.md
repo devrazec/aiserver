@@ -148,7 +148,7 @@ http://openai-edge-tts:5050/v1 or
 http://host.docker.internal:5050/v1 or
 http://localhost:5050/v1
 
-Model: tts-1
+TTS Model: tts-1
 Voice: en-US-AvaNeural
 
 en-US-AvaNeural for the best all-purpose default
@@ -157,7 +157,12 @@ en-US-GuyNeural for a solid male voice
 en-US-BrianNeural for a more polished, presenter-style male voice
 en-US-AriaNeural for expressive narration
 
+# Open Webui Speech-to-Text Engine
+
+Host: http://faster-whisper:8000/v1
+SST Model: Systran/faster-distil-whisper-small.en
+
 # GitHub
 
 git config --global user.email "devrazec@gmail.com"
-git config --global user.name "Cezar Souza"
+git config --global user.name "devrazec"
