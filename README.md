@@ -85,6 +85,20 @@ curl -fsSL https://lmstudio.ai/install.sh | bash
 -- Python
 -- Nodejs
 -- Postman
--- Office 365 (Word, Excel, Power Point, Outlook)
--- 
+
+# Docker Commands 
+
+docker-compose build
+
+docker-compose up -d
+
+docker-compose down
+
+docker-compose up -d --build
+
+docker-compose restart llama
+
+docker-compose up -d llama
+
+docker-compose logs --tail=50 llama
 
