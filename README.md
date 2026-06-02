@@ -140,7 +140,7 @@ cd llama.cpp
 cmake -B build
 cmake --build build --config Release
 
-# Open Webui Voices
+# Open Webui Text-to-Speech Engine
 
 Text-to-Speech Engine: OpenAI
 Host: 
