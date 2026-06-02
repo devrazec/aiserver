@@ -1,0 +1,12 @@
+services:
+  llama:
+    image: ghcr.io/ggml-org/llama.cpp:server
+    container_name: llama-server
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./models:/models
+    command: >
+      -m /models/Qwen3-8B-Q4_K_M.gguf
+      --host 0.0.0.0
+    restart: unless-stopped
