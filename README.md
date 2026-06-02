@@ -88,13 +88,11 @@ curl -fsSL https://lmstudio.ai/install.sh | bash
 
 # Docker Commands 
 
-docker-compose build
-
-docker-compose up -d
-
 docker-compose down
 
 docker-compose up -d --build
+
+docker-compose up -d
 
 docker-compose restart llama
 
@@ -102,3 +100,12 @@ docker-compose up -d llama
 
 docker-compose logs --tail=50 llama
 
+# End Points
+
+http://localhost:3000/
+
+http://localhost:8080/health
+
+http://localhost:8080/v1
+
+http://localhost:8080/v1/chat/completions

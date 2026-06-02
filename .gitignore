@@ -218,3 +218,4 @@ __marimo__/
 .streamlit/secrets.toml
 llama/models/Qwen3-8B-Q4_K_M.gguf
 llama/models/Qwen3-14B-Q4_K_M.gguf
+llama/models/Qwen3-4B-Q4_K_M.gguf

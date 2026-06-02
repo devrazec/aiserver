@@ -7,6 +7,24 @@ services:
     volumes:
       - ./models:/models
     command: >
-      -m /models/Qwen3-8B-Q4_K_M.gguf
+      -m /models/Qwen3-4B-Q4_K_M.gguf
       --host 0.0.0.0
     restart: unless-stopped
+
+  open-webui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: open-webui
+    depends_on:
+      - llama
+    ports:
+      - "3000:8080"
+    environment:
+      OLLAMA_BASE_URL: ''
+      OPENAI_API_BASE_URL: http://llama:8080/v1
+      OPENAI_API_KEY: not-needed
+    volumes:
+      - open-webui:/app/backend/data
+    restart: unless-stopped
+
+volumes:
+  open-webui:
