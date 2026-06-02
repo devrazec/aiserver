@@ -68,6 +68,7 @@ curl -fsSL https://lmstudio.ai/install.sh | bash
 
 -- Models
 
+-- Qwen3-4B-Q4_K_M.gguf
 -- Qwen3-8B-Q4_K_M.gguf
 -- Qwen3-14B-Q4_K_M.gguf
 
@@ -109,3 +110,52 @@ http://localhost:8080/health
 http://localhost:8080/v1
 
 http://localhost:8080/v1/chat/completions
+
+# Install llama on Widowns
+
+winget install llama.cpp
+
+llama-cli --version
+
+Download X64
+https://github.com/ggml-org/llama.cpp/releases
+
+PowerShell
+
+cd .\Users\DELL\Documents\GitHub\aiserver\llama\bin
+
+Unblock-File -Path "C:\Users\DELL\Documents\GitHub\aiserver\llama\bin\*.*"
+
+.\llama-server.exe -m ..\models\Qwen3-4B-Q4_K_M.gguf -t 6 -c 2048
+
+.\llama-server.exe -m ..\models\Qwen3-4B-Q4_K_M.gguf --port 8080 -t 6 -c 2048
+
+curl http://localhost:8080/v1/models
+
+# Install llama on Mac
+
+brew install cmake
+git clone https://github.com/ggml-org/llama.cpp.git
+cd llama.cpp
+cmake -B build
+cmake --build build --config Release
+
+# Open Webui Voices
+
+Text-to-Speech Engine: OpenAI
+Host: 
+http://openai-edge-tts:5050/v1 or
+http://host.docker.internal:5050/v1 or
+http://localhost:5050/v1
+
+Model: tts-1
+Voice: en-US-AvaNeural
+
+en-US-AvaNeural for the best all-purpose default
+en-US-JennyNeural for a slightly warmer female voice
+en-US-GuyNeural for a solid male voice
+en-US-BrianNeural for a more polished, presenter-style male voice
+en-US-AriaNeural for expressive narration
+
+
+

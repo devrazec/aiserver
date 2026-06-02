@@ -7,11 +7,11 @@ services:
     volumes:
       - ./models:/models
     command: >
-      -m /models/Qwen3-4B-Q4_K_M.gguf
+      -m /models/Qwen3-8B-Q4_K_M.gguf
       --host 0.0.0.0
       --port 8080
-      -t 4
-      -c 2048
+      -t 5
+      -c 4096
       -b 512
     restart: unless-stopped
 
@@ -30,5 +30,24 @@ services:
       - open-webui:/app/backend/data
     restart: unless-stopped
 
+  openai-edge-tts:
+    image: travisvn/openai-edge-tts:latest
+    container_name: openai-edge-tts
+    environment:
+      REQUIRE_API_KEY: "False"
+    ports:
+      - "5050:5050"
+    restart: unless-stopped
+
+  faster-whisper:
+    image: ghcr.io/speaches-ai/speaches:latest-cpu
+    container_name: faster-whisper
+    ports:
+      - "8000:8000"
+    volumes:
+      - hf-hub-cache:/home/ubuntu/.cache/huggingface/hub
+    restart: unless-stopped
+
 volumes:
+  hf-hub-cache:
   open-webui:
