@@ -166,3 +166,18 @@ SST Model: Systran/faster-distil-whisper-small.en
 
 git config --global user.email "devrazec@gmail.com"
 git config --global user.name "devrazec"
+
+# Prompts
+
+Could you find jobs for me in Portugal? I’m a web developer.
+
+I need your help to replace the @refinedev/mui library for custom components. The idea is to get all code from these 4 imports 
+RefineThemes, ThemedHeader, ThemedLayout, ThemedSider
+and update the components from /app/components
+I coped the import code to the folder  /src/disabled 
+
+# Models
+
+docker exec -it ollama ollama pull qwen2.5-coder:1.5b
+docker exec -it ollama ollama pull llama3.1:8b
+docker exec -it ollama ollama pull nomic-embed-text

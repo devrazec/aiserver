@@ -1,32 +1,24 @@
 services:
-  llama:
-    image: ghcr.io/ggml-org/llama.cpp:server
-    container_name: llama-server
+  ollama:
+    image: ollama/ollama:latest
+    container_name: ollama
     ports:
-      - "8080:8080"
+      - "11434:11434"
     volumes:
-      - ./models:/models
-    command: >
-      -m /models/qwen2.5-coder-1.5b-instruct-q4_k_m.gguf
-      --host 0.0.0.0
-      --port 8080
-      -t 5
-      -c 16384
-      -b 512
-      --n-predict 512
+      - ollama:/root/.ollama
     restart: unless-stopped
 
   open-webui:
     image: ghcr.io/open-webui/open-webui:main
     container_name: open-webui
     depends_on:
-      - llama
+      - ollama
     ports:
       - "3000:8080"
     environment:
-      OLLAMA_BASE_URL: ''
-      OPENAI_API_BASE_URL: http://llama:8080/v1
-      OPENAI_API_KEY: not-needed
+      OLLAMA_BASE_URL: http://ollama:11434
+      OPENAI_API_BASE_URL: ""
+      OPENAI_API_KEY: ""
     volumes:
       - open-webui:/app/backend/data
     restart: unless-stopped
@@ -50,5 +42,6 @@ services:
     restart: unless-stopped
 
 volumes:
-  hf-hub-cache:
+  ollama:
   open-webui:
+  hf-hub-cache:
